@@ -1,315 +1,319 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="mediaqueries.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rae Del Monte — Data & Automation Analyst</title>
+<meta name="description" content="Portfolio of Rae Del Monte, a Data & Automation Analyst specializing in Power BI dashboards and Power Platform automation." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <nav id="desktop-nav">
-        <div class="logo" >Ray Del Monte</div>
-        <div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contacts</a></li>
-            </ul>
-        </div>
+
+  <div class="progress-bar" id="progressBar"></div>
+
+  <header id="site-header">
+    <nav class="nav-wrap">
+      <a href="#top" class="logo-mark" aria-label="Rae Del Monte, home">
+        <span class="logo-box">RM</span>
+        <span class="logo-text">Rae Del Monte</span>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about" data-nav="about">About</a></li>
+        <li><a href="#experience" data-nav="experience">Capabilities</a></li>
+        <li><a href="#projects" data-nav="projects">Projects</a></li>
+        <li><a href="#contact" data-nav="contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </nav>
-    <nav id="hamburger-nav">
-        <div class ="logo" >Ray Del Monte</div>
-        <div class="hamburger-menu">
-            <div class ="hamburger-icon" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#about">About</a>
+      <a href="#experience">Capabilities</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section id="profile" class="hero">
+      <div class="hero-copy">
+        <p class="hero-kicker">Data & Automation Analyst</p>
+        <h1 class="hero-title">I turn messy operational data into dashboards and workflows people actually use.</h1>
+        <p class="hero-sub">Computer Engineering graduate focused on business intelligence and process automation — building Power BI reports and Power Platform apps that replace manual, paper-heavy workflows.</p>
+
+        <div class="hero-focus" aria-label="Focus areas">
+          <span class="focus-chip">Dashboards</span>
+          <span class="focus-chip">Automation</span>
+          <span class="focus-chip">Data modeling</span>
+        </div>
+
+        <div class="btn-row">
+          <a class="btn btn-primary magnetic" href="./assets/resume.pdf" target="_blank" rel="noopener">
+            Download CV
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12m0 0 4-4m-4 4-4-4M5 20h14"/></svg>
+          </a>
+          <a class="btn btn-ghost magnetic" href="#contact">Get in touch</a>
+        </div>
+
+        <div class="hero-social">
+          <a href="https://linkedin.com/in/ray-del-monte-a41b3938a/" target="_blank" rel="noopener" aria-label="LinkedIn profile" class="social-link">
+            <img src="./assets/linkedin.png" alt="" />
+          </a>
+          <a href="https://github.com/delmonteraeine" target="_blank" rel="noopener" aria-label="GitHub profile" class="social-link">
+            <img src="./assets/github.png" alt="" />
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <svg class="flow-diagram" viewBox="0 0 420 460" fill="none" aria-hidden="true">
+          <path class="flow-path" d="M60 90 C 150 90, 130 200, 210 220 C 290 240, 270 350, 360 370" stroke="var(--accent)" stroke-width="2" stroke-dasharray="6 8"/>
+          <circle class="flow-node n1" cx="60" cy="90" r="6"/>
+          <circle class="flow-node n2" cx="210" cy="220" r="6"/>
+          <circle class="flow-node n3" cx="360" cy="370" r="6"/>
+        </svg>
+
+        <div class="photo-card">
+          <img src="./assets/profile-pic.png" alt="Portrait of Rae Del Monte" />
+          <span class="status-chip"><span class="status-dot"></span>Open to work</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <div class="section-head">
+        <h2>About</h2>
+        <p class="section-lede">Where I've worked and what I studied.</p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-photo">
+          <img src="./assets/about-pic.png" alt="Rae Del Monte at work" />
+        </div>
+
+        <div class="about-body">
+          <p class="about-text">
+            I'm a Computer Engineering graduate from Rizal Technological University with hands-on
+            experience in data analytics, business intelligence, and automation. During my internship
+            at the Department of Education, I built Power BI dashboards and Power Apps solutions that
+            turned raw, manual records into clear, actionable tools — digitalizing paper-based processes
+            for a government office.
+          </p>
+
+          <div class="kpi-row">
+            <div class="kpi-card">
+              <span class="kpi-label">Experience</span>
+              <h3>Data Analyst & Power Platform Developer Intern</h3>
+              <p>3 months — DepEd, Technology Infrastructure Division (ICTS)</p>
             </div>
-            <div class="menu-links">
-                <li><a href="#about" onclick="toggleMenu()">About</a></li>
-                <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
-                <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-                <li><a href="#contact" onclick="toggleMenu()">Contacts</a></li>
+            <div class="kpi-card">
+              <span class="kpi-label">Education</span>
+              <h3>B.S. Computer Engineering</h3>
+              <p>Rizal Technological University</p>
             </div>
           </div>
-    </nav>
-    <section id="profile">
-        <div class="section__pic-container">
-            <img src="./assets/profile-pic.png" 
-            alt="Ray Del Monte profile picture">
         </div>
-        <div class="section__text">
-            <p class="section__text__p1">Hello, I'm</p>
-            <h1 class="title">Rae</h1>
-            <p class="section__text__p2">Data & Automation Analyst</p>
-            <div class="btn-container">
-                <button class="btn btn-color-2" onclick="window.open('./assets/resume.pdf')"
-                >Download CV</button>
-                <button class="btn btn-color-1" onclick="location.href='./#contact'"
-                >Contact Info</button>
-            </div>
-            <div id="socials-container">
-                <img src="./assets/linkedin.png" 
-                alt="My LinkedIn profile"
-                class="icon" 
-                onclick="location.href='https://linkedin.com/in/ray-del-monte-a41b3938a/'"/>
-                
-                <img src="./assets/github.png" 
-                alt="My Github profile"
-                class="icon" 
-                onclick="location.href='https://github.com/delmonteraeine'">
-            </div>
-        </div>
+      </div>
     </section>
-    <section id="about">
-        <p class="section__text__p1">Get to know more</p>
-        <h1 class="title">About me</h1>
-        <div class="section-container">
-            <div class="section__pic-container">
-                <img 
-                src="./assets/about-pic.png" 
-                alt="Profile picture" 
-                class="about-pic"/>
-            </div>
-            <div class="about-details-container">
-                <div class="about-containers">
-                    <div class="details-container">
-                        <img src="./assets/experience.png" 
-                        alt="Experience icon"
-                        class="icon"
-                        />
-                        <h3>Experience</h3>
-                        <p>3 Months <br> <br>Data Analyst & <br>Power Platform Developer Intern <br> <br>DepEd - Technology Infrastrature Division (TID) under ICTS</p>
-                    </div>
-                    <div class="details-container">
-                        <img src="./assets/education.png" 
-                        alt="Education icon"
-                        class="icon"
-                        />
-                        <h3>Education</h3>
-                        <p> <br>Bachelor of Science in Computer Engineering</p>
-                </div>
-            </div>
-            <div class="text-container">
-                <p>
-                    I'm a Computer Engineer graduate from
-                    Rizal Technological University with hands-on experience 
-                    in data analytics, business intelligence, and automation. 
-                    Did my internship at the Department of Education where I 
-                    build Power BI dashboards and Power Apps solutions — 
-                    turning raw data into clear, actionable insights and applications
-                    to digitalize manual processes in office of DepEd.
-                </p>
-                </div>
-            </div>
+
+    <!-- EXPERIENCE / CAPABILITIES -->
+    <section id="experience" class="section">
+      <div class="section-head">
+        <h2>Capabilities</h2>
+        <p class="section-lede">Grouped by the two sides of the work: analysis and automation.</p>
+      </div>
+
+      <div class="capability-grid">
+        <div class="capability-card">
+          <h3>Data Analytics & Business Intelligence</h3>
+          <ul class="skill-list">
+            <li class="skill-row">
+              <div class="skill-top"><span>Power BI</span><span class="skill-level-label">Basic</span></div>
+              <div class="skill-bar"><span style="--fill:45%"></span></div>
+            </li>
+            <li class="skill-row">
+              <div class="skill-top"><span>DAX (Data Analysis Expressions)</span><span class="skill-level-label">Basic</span></div>
+              <div class="skill-bar"><span style="--fill:40%"></span></div>
+            </li>
+            <li class="skill-row">
+              <div class="skill-top"><span>Data modeling</span><span class="skill-level-label">Basic</span></div>
+              <div class="skill-bar"><span style="--fill:45%"></span></div>
+            </li>
+            <li class="skill-row">
+              <div class="skill-top"><span>Excel & data transformation</span><span class="skill-level-label">Experienced</span></div>
+              <div class="skill-bar"><span style="--fill:75%"></span></div>
+            </li>
+          </ul>
         </div>
-        <img src="./assets/arrow.png" 
-        alt="Arrow Icon" 
-        class="icon arrow"
-        onclick="location.href='./#experience'"
+
+        <div class="capability-card">
+          <h3>Power Platform Automation</h3>
+          <ul class="skill-list">
+            <li class="skill-row">
+              <div class="skill-top"><span>Power Apps</span><span class="skill-level-label">Basic</span></div>
+              <div class="skill-bar"><span style="--fill:45%"></span></div>
+            </li>
+            <li class="skill-row">
+              <div class="skill-top"><span>Power Automate</span><span class="skill-level-label">Basic</span></div>
+              <div class="skill-bar"><span style="--fill:45%"></span></div>
+            </li>
+            <li class="skill-row">
+              <div class="skill-top"><span>Workflow design</span><span class="skill-level-label">Basic</span></div>
+              <div class="skill-bar"><span style="--fill:40%"></span></div>
+            </li>
+            <li class="skill-row">
+              <div class="skill-top"><span>System integration</span><span class="skill-level-label">Basic</span></div>
+              <div class="skill-bar"><span style="--fill:40%"></span></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+      <div class="section-head">
+        <h2>Projects</h2>
+        <p class="section-lede">A sample of dashboards and apps built during my internship.</p>
+      </div>
+
+      <div class="project-list">
+        <article class="project-row">
+          <div class="project-media">
+            <img src="./assets/project-1.png" alt="Screenshot of a Power Apps and Power Automate solution" />
+          </div>
+          <div class="project-info">
+            <span class="project-tag">Power Apps · Power Automate</span>
+            <h3>Office workflow automation</h3>
+            <p>A Power Apps front end paired with Power Automate flows to replace a manual, paper-based request process with a digital, trackable one.</p>
+            <a class="btn btn-ghost btn-sm" href="https://drive.google.com/file/d/1duY6_iRgTeUcWO8RL4qP4MzFNvAn10F9/view?usp=drive_link" target="_blank" rel="noopener">
+              View demo
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="project-row reverse">
+          <div class="project-media">
+            <img src="./assets/project-2.png" alt="Screenshot of a Power BI dashboard" />
+          </div>
+          <div class="project-info">
+            <span class="project-tag">Power BI · DAX</span>
+            <h3>Operations reporting dashboard</h3>
+            <p>An interactive Power BI report consolidating raw records into clear, filterable views for faster, evidence-based decisions.</p>
+            <a class="btn btn-ghost btn-sm" href="https://drive.google.com/file/d/1duFkHi9Jo8l42fRLf2DVqsmjuiIndDLO/view?usp=drive_link" target="_blank" rel="noopener">
+              View demo
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="project-row is-upcoming">
+          <div class="project-media">
+            <img src="./assets/project-3.png" alt="Placeholder for an upcoming project" />
+          </div>
+          <div class="project-info">
+            <span class="project-tag">In progress</span>
+            <h3>New project — coming soon</h3>
+            <p>Currently building the next piece of this portfolio. Check back soon, or reach out if you'd like a preview.</p>
+            <span class="btn btn-ghost btn-sm btn-disabled" aria-disabled="true">Coming soon</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section contact-section">
+      <div class="section-head">
+        <h2>Let's talk</h2>
+        <p class="section-lede">Open to internships and entry-level analyst or automation roles.</p>
+      </div>
+
+      <div class="contact-grid">
+        <a class="contact-card" href="mailto:delmonterei09@gmail.com">
+          <img src="./assets/email.png" alt="" class="contact-icon" />
+          <div>
+            <span class="contact-label">Email</span>
+            <span class="contact-value">delmonterei09@gmail.com</span>
+          </div>
+        </a>
+        <a class="contact-card" href="https://www.linkedin.com/in/ray-del-monte-a41b3938a/" target="_blank" rel="noopener">
+          <img src="./assets/linkedin.png" alt="" class="contact-icon" />
+          <div>
+            <span class="contact-label">LinkedIn</span>
+            <span class="contact-value">ray-del-monte-a41b3938a</span>
+          </div>
+        </a>
+        <a class="contact-card" href="https://github.com/delmonteraeine" target="_blank" rel="noopener">
+          <img src="./assets/github.png" alt="" class="contact-icon" />
+          <div>
+            <span class="contact-label">GitHub</span>
+            <span class="contact-value">delmonteraeine</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span class="logo-box small">RM</span>
+      <p>© <span id="year"></span> Rae Del Monte. All rights reserved.</p>
+      <a href="#top" class="back-to-top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <!-- AI CHAT WIDGET -->
+  <div id="chatWidget" class="chat-widget">
+    <button id="chatToggle" class="chat-toggle magnetic" aria-label="Ask a question about Rae" aria-expanded="false">
+      <svg class="chat-icon-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+      <svg class="chat-icon-close" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+
+    <div class="chat-panel" id="chatPanel">
+      <div class="chat-header">
+        <span class="logo-box small">RM</span>
+        <div>
+          <h4>Ask about Rae</h4>
+          <p><span class="status-dot small"></span>Quick answers, always online</p>
+        </div>
+      </div>
+
+      <div class="chat-messages" id="chatMessages"></div>
+
+      <form class="chat-input-row" id="chatForm">
+        <input
+          type="text"
+          id="chatInput"
+          class="chat-input"
+          placeholder="Ask a question..."
+          maxlength="300"
+          autocomplete="off"
         />
-    </section>
-    <section id="experience">
-        <p class="section__text__p1">Explore My</p>
-        <h1 class="title">Experience</h1>
-        <div class="experience-details-container">
-            <div class="about-containers">
-                <div class="details-container">
-                    <h2 class="experience-sub-title">Data Analytics & Business Intelligence(BI)</h2>
-                    <div class="article-container">
-                        <article>
-                            <img src="./assets/checkmark.png" 
-                            alt="Experience icon" 
-                            class="icon"
-                            />
-                            <div>
-                                <h3>Power BI</h3>
-                                <p>Basic</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" 
-                            alt="Experience icon" 
-                            class="icon"
-                            />
-                            <div>
-                                <h3>DAX Logic (Data Analytics Expressions)</h3>
-                                <p>Basic</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" 
-                            alt="Experience icon" 
-                            class="icon"
-                            />
-                            <div>
-                                <h3>Data Modeling</h3>
-                                <p>Basic</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" 
-                            alt="Experience icon" 
-                            class="icon"
-                            />
-                            <div>
-                                <h3>Microsoft Excel & Data Transformation</h3>
-                                <p>Experienced</p>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-                <div class="details-container">
-                    <h2 class="experience-sub-title">Power Platform Development</h2>
-                    <div class="article-container">
-                        <article>
-                            <img src="./assets/checkmark.png" 
-                            alt="Experience icon" 
-                            class="icon"
-                            />
-                            <div>
-                                <h3>Power Apps</h3>
-                                <p>Basic</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" 
-                            alt="Experience icon" 
-                            class="icon"
-                            />
-                            <div>
-                                <h3>Power Automate</h3>
-                                <p>Basic</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" 
-                            alt="Experience icon" 
-                            class="icon"
-                            />
-                            <div>
-                                <h3>Workflow Design</h3>
-                                <p>Basic</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="./assets/checkmark.png" 
-                            alt="Experience icon" 
-                            class="icon"
-                            />
-                            <div>
-                                <h3>System Integration</h3>
-                                <p>Basic</p>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <img src="./assets/arrow.png" 
-        alt="Arrow Icon" 
-        class="icon arrow"
-        onclick="location.href='./#projects'"
-        />
-    </section>
-    <section id="projects">
-        <p class="section__text__p1">Browse My Recent</p>
-        <h1 class="title">Projects</h1>
-        <div class="experience-details-container">
-            <div class="about-containers">
-            <div class="details-container color-container">
-            <div class="article-container">
-                <img src="./assets/project-1.png" 
-                alt="Project 1" 
-                class="project-img"
-                />
-            </div>
-            <h2 class="experience-sub-title project-title">Power Apps & Automate</h2>
-            <div class="btn-container">
-                <button class="btn btn-color-2 project-btn" 
-                onclick="location.href='https://drive.google.com/file/d/1duY6_iRgTeUcWO8RL4qP4MzFNvAn10F9/view?usp=drive_link'">
-                Live Demo
-                </button>
-            </div>
-        </div>
-            <div class="details-container color-container">
-            <div class="article-container">
-                <img src="./assets/project-2.png" 
-                alt="Project 2" 
-                class="project-img"
-                />
-            </div>
-            <h2 class="experience-sub-title project-title">Power BI</h2>
-            <div class="btn-container">
-                </button>
-                <button class="btn btn-color-2 project-btn" 
-                onclick="location.href='https://drive.google.com/file/d/1duFkHi9Jo8l42fRLf2DVqsmjuiIndDLO/view?usp=drive_link'">
-                Live Demo
-                </button>
-            </div>
-        </div>
-            <div class="details-container color-container">
-            <div class="article-container">
-                <img src="./assets/project-3.png" 
-                alt="Project 3" 
-                class="project-img"
-                />
-            </div>
-            <h2 class="experience-sub-title project-title">Coming Soon</h2>
-            <div class="btn-container">
-                </button>
-                <button class="btn btn-color-2 project-btn" 
-                onclick="location.href=''">
-                Live Demo
-                </button>
-            </div>
-        </div>
-        </div>
-        </div>
-        <img src="./assets/arrow.png" 
-        alt="Arrow icon" 
-        class="icon arrow" 
-        onclick="location.href='./#projects'"
-        />
-    </section>
-    <section id="contact">
-        <p class="section__text__p1">Get in Touch</p>
-        <h1 class="title">Contact Me</h1>
-        <div class="contact-info-upper-container">
-            <div class="contact-info-container">
-                <img src="./assets/email.png" 
-                alt="Email Icon" 
-                class="icon contact-icon email-icon"
-                />
-                <p><a href="mailto:delmonterei09@gmail.com">delmonterei09@gmail.com</a>
-                </p>
-                </div>
-            <div class="contact-info-container">
-                <img src="./assets/linkedin.png" 
-                alt="LinkedIn Icon" 
-                class="icon contact-icon"
-                />
-                <p><a href="https://www.linkedin.com/in/ray-del-monte-a41b3938a/">LinkedIn</a>
-                </p>
-            </div>
-        </div>
-    </section>
-    <footer>
-        <nav>
-            <div class="nav-links-container">
-                <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contacts</a></li>
-            </ul>
-            </div>
-        </nav>
-        <p>Copyright &#169; 2026 Ray Del Monte. All Rights Reserved.</p>
-    </footer>
-    <script src="script.js"></script>
-    </body>
+        <button type="submit" class="chat-send magnetic" aria-label="Send message">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7Z"/></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="chatbot.js"></script>
+</body>
 </html>
