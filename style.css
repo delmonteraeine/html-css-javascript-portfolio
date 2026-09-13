@@ -331,7 +331,7 @@ html[data-theme="dark"] .social-link img { filter: invert(1); opacity: 0.85; }
 /* ============================================
    CONTACT
    ============================================ */
-.contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1.25rem; }
 .contact-card {
   display: flex; align-items: center; gap: 1rem;
   padding: 1.5rem; border-radius: var(--radius-md); border: 1px solid var(--line);
@@ -535,4 +535,129 @@ html[data-theme="dark"] .chat-send { background: var(--accent); color: #17130a; 
 @media (max-width: 480px) {
   .chat-widget { right: 1rem; bottom: 1rem; }
   .chat-panel { right: -0.25rem; }
+}
+
+/* ============================================
+   SOUND TOGGLE
+   ============================================ */
+.sound-toggle {
+  width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--line);
+  background: var(--surface); color: var(--muted); cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: border-color 200ms ease, color 200ms ease, transform 200ms ease;
+}
+.sound-toggle:hover { border-color: var(--accent); transform: scale(1.06); }
+.sound-toggle.is-on { color: var(--accent-ink); border-color: var(--accent); }
+.icon-sound-off { display: none; }
+.sound-toggle.is-on .icon-sound-on { display: block; }
+.sound-toggle.is-on .icon-sound-off { display: none; }
+.sound-toggle:not(.is-on) .icon-sound-on { display: none; }
+.sound-toggle:not(.is-on) .icon-sound-off { display: block; }
+
+/* ============================================
+   SECTION NUMBERING (kicker like "01 —")
+   ============================================ */
+main { counter-reset: section-count; }
+.section .section-head h2 { counter-increment: section-count; }
+.section .section-head h2::before {
+  content: counter(section-count, decimal-leading-zero) " — ";
+  font-family: var(--font-mono);
+  font-size: 0.5em;
+  color: var(--accent-ink);
+  vertical-align: middle;
+  margin-right: 0.15em;
+  letter-spacing: 0.02em;
+}
+
+/* ============================================
+   CURSOR SPOTLIGHT
+   ============================================ */
+.cursor-glow {
+  position: fixed; top: 0; left: 0; width: 480px; height: 480px; border-radius: 50%;
+  background: radial-gradient(circle, var(--accent-soft) 0%, transparent 70%);
+  pointer-events: none; z-index: 1; opacity: 0;
+  transition: opacity 400ms ease;
+  will-change: transform;
+}
+.cursor-glow.active { opacity: 1; }
+main, header, footer { position: relative; z-index: 2; }
+
+/* ============================================
+   THEME SWITCH — CIRCULAR VIEW TRANSITION
+   ============================================ */
+::view-transition-old(root) { animation: none; mix-blend-mode: normal; z-index: 1; }
+::view-transition-new(root) {
+  animation: rmThemeReveal 550ms ease forwards;
+  mix-blend-mode: normal;
+  z-index: 2;
+}
+@keyframes rmThemeReveal {
+  from { clip-path: circle(0% at var(--toggle-x, 92%) var(--toggle-y, 4%)); }
+  to { clip-path: circle(150% at var(--toggle-x, 92%) var(--toggle-y, 4%)); }
+}
+
+/* ============================================
+   TECH STACK
+   ============================================ */
+.stack-groups { display: flex; flex-direction: column; gap: 2.5rem; }
+.stack-group h3 {
+  font-size: 0.85rem; font-family: var(--font-mono); font-weight: 500;
+  color: var(--muted); text-transform: none; margin-bottom: 1.1rem;
+}
+.stack-grid { display: flex; flex-wrap: wrap; gap: 0.9rem; }
+.stack-item {
+  display: flex; align-items: center; gap: 0.6rem;
+  padding: 0.6rem 1rem 0.6rem 0.6rem; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--surface);
+  transition: border-color 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+}
+.stack-item:hover { border-color: var(--accent); transform: translateY(-2px); }
+html[data-theme="dark"] .stack-item:hover { box-shadow: 0 0 18px -4px var(--accent-soft); }
+
+.stack-icon {
+  position: relative; width: 26px; height: 26px; border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center; overflow: hidden;
+  background: var(--bg);
+}
+.stack-icon img { width: 16px; height: 16px; object-fit: contain; }
+.stack-fallback {
+  display: none; position: absolute; inset: 0; align-items: center; justify-content: center;
+  font-family: var(--font-mono); font-size: 0.55rem; font-weight: 500; color: var(--muted);
+  background: var(--bg);
+}
+.icon-missing .stack-icon img { display: none; }
+.icon-missing .stack-fallback { display: flex; }
+
+.stack-label { font-size: 0.88rem; font-weight: 500; white-space: nowrap; }
+
+/* ============================================
+   LEADERSHIP CARDS (reuse capability-card shell)
+   ============================================ */
+.lead-org { font-size: 0.88rem; color: var(--muted); margin: 0.35rem 0 0.9rem; font-weight: 500; }
+.lead-desc { font-size: 0.92rem; margin: 0; }
+
+/* ============================================
+   ACADEMIC PROJECTS
+   ============================================ */
+.academic-projects { margin-top: 3.5rem; padding-top: 3rem; border-top: 1px solid var(--line); }
+.academic-heading { font-size: 1.1rem; margin-bottom: 1.5rem; }
+.academic-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.academic-card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-md);
+  padding: 1.4rem; transition: border-color 200ms ease, transform 200ms ease;
+}
+.academic-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+.academic-card h4 { font-size: 1rem; margin: 0.6rem 0 0.5rem; }
+.academic-card p { font-size: 0.86rem; margin: 0; }
+
+/* ============================================
+   CONTACT ICON FALLBACK (for entries without a brand image)
+   ============================================ */
+.contact-icon-fallback {
+  width: 26px; height: 26px; display: flex; align-items: center; justify-content: center;
+  color: var(--muted); flex-shrink: 0;
+}
+
+@media (max-width: 968px) {
+  .academic-grid { grid-template-columns: 1fr; }
 }
