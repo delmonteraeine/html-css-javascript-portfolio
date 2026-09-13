@@ -2,9 +2,10 @@
   "use strict";
 
   var STORAGE_KEY = "rm-portfolio-sound";
-  var enabled = false;
+  var enabled = true;
   try {
-    enabled = localStorage.getItem(STORAGE_KEY) === "on";
+    var saved = localStorage.getItem(STORAGE_KEY);
+    if (saved !== null) enabled = saved === "on";
   } catch (e) {}
 
   var ctx = null;
@@ -54,6 +55,9 @@
     click: function () {
       tone(520, 0.06, { type: "sine", volume: 0.05 });
     },
+    hover: function () {
+      tone(1040, 0.035, { type: "sine", volume: 0.018 });
+    },
     toggleOn: function () {
       tone(420, 0.12, { type: "sine", sweepTo: 840, volume: 0.06 });
     },
@@ -75,6 +79,30 @@
   };
 
   window.UISound = UISound;
+
+  /* ---------------------------------------------------------
+     Browsers block audio output until a genuine user gesture
+     happens (click, keydown, or touch — hover does NOT count,
+     by design, to stop unwanted autoplay sound). We can't play
+     anything before that first gesture, but we can unlock the
+     AudioContext on the very first one, anywhere on the page,
+     so sound is ready as early as physically possible rather
+     than requiring a click specifically on the sound button.
+  --------------------------------------------------------- */
+  function initEarlyUnlock() {
+    var unlocked = false;
+    function unlock() {
+      if (unlocked) return;
+      unlocked = true;
+      getCtx();
+      document.removeEventListener("pointerdown", unlock, true);
+      document.removeEventListener("keydown", unlock, true);
+      document.removeEventListener("touchstart", unlock, true);
+    }
+    document.addEventListener("pointerdown", unlock, true);
+    document.addEventListener("keydown", unlock, true);
+    document.addEventListener("touchstart", unlock, true);
+  }
 
   /* ---------------------------------------------------------
      Speaker toggle button
@@ -125,13 +153,52 @@
     );
   }
 
+  /* ---------------------------------------------------------
+     Subtle hover feedback for cards, stack items, and nav
+     links. Uses a WeakSet-style timestamp guard per element
+     so re-entering quickly doesn't spam the same tone, and
+     only fires on real mouse hover (not touch taps).
+  --------------------------------------------------------- */
+  function initHoverSounds() {
+    var supportsHover = window.matchMedia && window.matchMedia("(hover: hover)").matches;
+    if (!supportsHover) return;
+
+    var HOVER_SELECTOR =
+      ".nav-links a, .capability-card, .academic-card, .stack-item, .project-media, .contact-card, .kpi-card, .stack-icon, .social-link, .theme-toggle, .sound-toggle";
+
+    var lastFired = new Map();
+    var COOLDOWN = 250;
+
+    document.addEventListener(
+      "mouseover",
+      function (e) {
+        var el = e.target.closest(HOVER_SELECTOR);
+        if (!el) return;
+        // Ignore moves between children of the same hovered element
+        if (el.contains(e.relatedTarget)) return;
+
+        var now = Date.now();
+        var last = lastFired.get(el) || 0;
+        if (now - last < COOLDOWN) return;
+        lastFired.set(el, now);
+
+        UISound.hover();
+      },
+      true
+    );
+  }
+
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", function () {
+      initEarlyUnlock();
       initToggle();
       initGenericClicks();
+      initHoverSounds();
     });
   } else {
+    initEarlyUnlock();
     initToggle();
     initGenericClicks();
+    initHoverSounds();
   }
 })();

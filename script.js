@@ -89,9 +89,20 @@
 
   /* ---------- Scrollspy: highlight active nav link ---------- */
   var navLinks = document.querySelectorAll(".nav-links a[data-nav]");
+  var navIndicator = document.getElementById("navIndicator");
+  var navLinksWrap = document.querySelector(".nav-links-wrap");
   var sections = Array.prototype.slice.call(
     document.querySelectorAll("main section[id]")
   );
+
+  function moveNavIndicator(link) {
+    if (!navIndicator || !navLinksWrap || !link) return;
+    var wrapRect = navLinksWrap.getBoundingClientRect();
+    var linkRect = link.getBoundingClientRect();
+    navIndicator.style.left = (linkRect.left - wrapRect.left) + "px";
+    navIndicator.style.width = linkRect.width + "px";
+    navIndicator.style.opacity = "1";
+  }
 
   if ("IntersectionObserver" in window && navLinks.length) {
     var spy = new IntersectionObserver(
@@ -100,7 +111,9 @@
           if (entry.isIntersecting) {
             var id = entry.target.getAttribute("id");
             navLinks.forEach(function (link) {
-              link.classList.toggle("active", link.getAttribute("data-nav") === id);
+              var isActive = link.getAttribute("data-nav") === id;
+              link.classList.toggle("active", isActive);
+              if (isActive) moveNavIndicator(link);
             });
           }
         });
@@ -109,6 +122,11 @@
     );
     sections.forEach(function (sec) { spy.observe(sec); });
   }
+
+  window.addEventListener("resize", function () {
+    var active = document.querySelector(".nav-links a.active");
+    if (active) moveNavIndicator(active);
+  });
 
   /* ---------- Reveal-on-scroll ---------- */
   var revealTargets = document.querySelectorAll(
@@ -178,7 +196,7 @@
       var px = (e.clientX - rect.left) / rect.width - 0.5;
       var py = (e.clientY - rect.top) / rect.height - 0.5;
       photoCard.style.transform =
-        "rotateY(" + px * 10 + "deg) rotateX(" + py * -10 + "deg)";
+        "rotateY(" + px * 6 + "deg) rotateX(" + py * -6 + "deg)";
     });
     photoCard.addEventListener("mouseleave", function () {
       photoCard.style.transform = "";
