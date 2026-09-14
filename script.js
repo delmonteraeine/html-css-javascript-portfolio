@@ -235,4 +235,25 @@
       cursorGlow.classList.remove("active");
     });
   }
+
+  /* ---------- Subtle parallax on hero decorative diagram ---------- */
+  var heroFlowDiagram = document.querySelector(".flow-diagram");
+  if (heroFlowDiagram && supportsHover && !(reduceMotionQuery && reduceMotionQuery.matches)) {
+    var parallaxTicking = false;
+    function updateParallax() {
+      var offset = Math.min(window.scrollY * 0.08, 40);
+      heroFlowDiagram.style.transform = "translateY(" + offset + "px)";
+      parallaxTicking = false;
+    }
+    window.addEventListener(
+      "scroll",
+      function () {
+        if (!parallaxTicking) {
+          parallaxTicking = true;
+          requestAnimationFrame(updateParallax);
+        }
+      },
+      { passive: true }
+    );
+  }
 })();
